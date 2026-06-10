@@ -51,7 +51,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: 
+    background-image:
       radial-gradient(circle at 20% 50%, rgba(150,68,237,0.08) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, rgba(150,68,237,0.05) 0%, transparent 40%),
       radial-gradient(circle at 50% 80%, rgba(150,68,237,0.06) 0%, transparent 45%);
@@ -75,7 +75,6 @@
     gap: clamp(0.6rem, 2vh, 1rem);
   }
 
-  /* Progress Bar */
   .progress-bar-wrap {
     width: 100%;
     height: clamp(3px, 0.6vh, 5px);
@@ -94,7 +93,6 @@
     box-shadow: 0 0 8px var(--accent-glow);
   }
 
-  /* Main Carousel Area - Netflix style: arrows overlay on video edges */
   .carousel-stage {
     flex: 1;
     display: flex;
@@ -105,7 +103,6 @@
     gap: 0;
   }
 
-  /* Video Card - full width, arrows sit on top */
   .video-card {
     flex: 1;
     max-width: min(860px, 90vw);
@@ -131,7 +128,6 @@
     border-color: rgba(150,68,237,0.25);
   }
 
-  /* Video Player Area */
   .video-player {
     position: relative;
     width: 100%;
@@ -148,7 +144,6 @@
     display: block;
   }
 
-  /* Video Overlay / Poster */
   .video-overlay {
     position: absolute;
     inset: 0;
@@ -192,6 +187,32 @@
     margin-left: 4px;
   }
 
+  .video-error-msg {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(7,6,26,0.85);
+    color: var(--white-55);
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .video-error-msg.visible {
+    display: flex;
+  }
+
+  .video-error-msg svg {
+    width: 32px;
+    height: 32px;
+    fill: rgba(150,68,237,0.5);
+    margin-bottom: 4px;
+  }
+
   .video-duration {
     position: absolute;
     bottom: clamp(8px, 1.5vh, 12px);
@@ -204,7 +225,6 @@
     font-weight: 400;
   }
 
-  /* Video Progress (custom) */
   .video-progress-wrap {
     position: absolute;
     bottom: 0;
@@ -229,9 +249,6 @@
     transition: width 0.1s linear;
   }
 
-  /* ============================================================
-     NETFLIX-STYLE NAVIGATION ARROWS - Overlay on video edges
-     ============================================================ */
   .nav-arrow-overlay {
     position: absolute;
     top: 0;
@@ -286,7 +303,6 @@
     transform: scale(1.15);
   }
 
-  /* Thumbnail Strip */
   .thumbnail-strip {
     flex-shrink: 0;
     display: flex;
@@ -297,9 +313,7 @@
     scrollbar-width: none;
   }
 
-  .thumbnail-strip::-webkit-scrollbar {
-    display: none;
-  }
+  .thumbnail-strip::-webkit-scrollbar { display: none; }
 
   .thumbnail {
     flex-shrink: 0;
@@ -345,8 +359,18 @@
   }
 
   .thumbnail.active img,
-  .thumbnail:hover img {
-    opacity: 1;
+  .thumbnail:hover img { opacity: 1; }
+
+  .thumbnail-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(150,68,237,0.12);
+    color: var(--white-20);
+    font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+    font-weight: 600;
   }
 
   .thumbnail-number {
@@ -359,7 +383,6 @@
     text-shadow: 0 1px 3px rgba(0,0,0,0.8);
   }
 
-  /* Dot Indicators */
   .dot-indicators {
     flex-shrink: 0;
     display: flex;
@@ -377,9 +400,7 @@
     transition: all 0.3s ease;
   }
 
-  .dot:hover {
-    background: rgba(150,68,237,0.5);
-  }
+  .dot:hover { background: rgba(150,68,237,0.5); }
 
   .dot.active {
     background: var(--accent);
@@ -388,11 +409,8 @@
     box-shadow: 0 0 8px var(--accent-glow);
   }
 
-  .dot.watched {
-    background: rgba(150,68,237,0.5);
-  }
+  .dot.watched { background: rgba(150,68,237,0.5); }
 
-  /* Footer */
   .footer {
     flex-shrink: 0;
     display: flex;
@@ -419,7 +437,6 @@
     font-weight: 400;
   }
 
-  /* Tooltip */
   .tooltip {
     position: fixed;
     background: rgba(7, 6, 26, 0.95);
@@ -437,13 +454,8 @@
     box-shadow: 0 4px 16px rgba(0,0,0,0.3), 0 0 12px rgba(150,68,237,0.2);
   }
 
-  .tooltip.visible {
-    opacity: 1;
-  }
+  .tooltip.visible { opacity: 1; }
 
-  /* ============================================================
-     INSTRUCTION POPUP - TIGHT positioning, close to the button
-     ============================================================ */
   .instruction-popup {
     position: absolute;
     background: rgba(7, 6, 26, 0.92);
@@ -468,10 +480,7 @@
     transform: scale(1);
   }
 
-  .instruction-popup strong {
-    color: var(--white);
-    font-weight: 600;
-  }
+  .instruction-popup strong { color: var(--white); font-weight: 600; }
 
   .instruction-popup kbd {
     display: inline-block;
@@ -485,7 +494,6 @@
     font-weight: 600;
   }
 
-  /* Speech bubble pointer - CSS triangle, very close to target */
   .instruction-popup::after {
     content: '';
     position: absolute;
@@ -494,73 +502,41 @@
     border-style: solid;
   }
 
-  /* Pointer pointing DOWN (popup is ABOVE the target) - tiny gap */
   .instruction-popup.pointer-down::after {
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: -6px; left: 50%; transform: translateX(-50%);
     border-width: 6px 5px 0 5px;
     border-color: var(--accent) transparent transparent transparent;
   }
 
-  /* Pointer pointing UP (popup is BELOW the target) - tiny gap */
   .instruction-popup.pointer-up::after {
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -6px; left: 50%; transform: translateX(-50%);
     border-width: 0 5px 6px 5px;
     border-color: transparent transparent var(--accent) transparent;
   }
 
-  /* Pointer pointing LEFT (popup is to the RIGHT of the target) - tiny gap */
   .instruction-popup.pointer-left::after {
-    left: -6px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: -6px; top: 50%; transform: translateY(-50%);
     border-width: 5px 6px 5px 0;
     border-color: transparent var(--accent) transparent transparent;
   }
 
-  /* Pointer pointing RIGHT (popup is to the LEFT of the target) - tiny gap */
   .instruction-popup.pointer-right::after {
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: -6px; top: 50%; transform: translateY(-50%);
     border-width: 5px 0 5px 6px;
     border-color: transparent transparent transparent var(--accent);
   }
 
-  /* Responsive */
   @media (max-width: 640px) {
-    .carousel-stage {
-      flex-direction: column;
-    }
-
-    .nav-arrow-overlay {
-      display: none;
-    }
-
-    .video-card {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .thumbnail-strip {
-      order: -1;
-      width: 100%;
-      justify-content: flex-start;
-      padding: 0.3rem 0;
-    }
+    .carousel-stage { flex-direction: column; }
+    .nav-arrow-overlay { display: none; }
+    .video-card { max-width: 100%; width: 100%; }
+    .thumbnail-strip { order: -1; width: 100%; justify-content: flex-start; padding: 0.3rem 0; }
   }
 
   @media (max-width: 480px) {
-    .content {
-      padding: 0.6rem;
-      gap: 0.5rem;
-    }
+    .content { padding: 0.6rem; gap: 0.5rem; }
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -569,7 +545,6 @@
     }
   }
 </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -587,7 +562,6 @@
         <div class="video-player" id="videoPlayer">
           <video id="mainVideo" preload="metadata" playsinline></video>
 
-          <!-- Netflix-style overlay arrows on left/right edges -->
           <button class="nav-arrow-overlay prev" id="prevBtn" aria-label="Previous video">
             <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
           </button>
@@ -600,18 +574,23 @@
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </button>
           </div>
+
+          <!-- FIX 4: Error state shown when video fails to load -->
+          <div class="video-error-msg" id="videoErrorMsg">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            Video could not be loaded.<br>Check your file path or network connection.
+          </div>
+
           <div class="video-duration" id="videoDuration">0:00</div>
           <div class="video-progress-wrap">
             <div class="video-progress-fill" id="videoProgressFill"></div>
           </div>
-          <!-- Instruction popup lives INSIDE the video player -->
           <div class="instruction-popup" id="instructionPopup"></div>
         </div>
       </div>
     </div>
 
     <div class="thumbnail-strip" id="thumbnailStrip"></div>
-
     <div class="dot-indicators" id="dotIndicators"></div>
 
     <div class="footer">
@@ -621,174 +600,160 @@
   </div>
 </div>
 
-<!-- Standard Tooltip (fixed position for thumbnails) -->
 <div class="tooltip" id="tooltip"></div>
 
 <script>
   // ============================================================
   // CONFIGURATION
-  // Set USE_DEMO = true for testing with sample videos
-  // Set USE_DEMO = false and update paths below for your GitHub deployment
   // ============================================================
-  const USE_DEMO = true;
+  //
+  // HOW TO USE:
+  // 1. Upload your video and thumbnail image files to your hosting
+  //    (e.g. GitHub Pages at https://USERNAME.github.io/REPO/)
+  // 2. Replace the videoUrl and posterUrl values below with your
+  //    full HTTPS URLs — do NOT use relative paths (./videos/...)
+  // 3. Add more objects to the VIDEOS array for more videos
+  //
+  // EXAMPLE GitHub Pages URL structure:
+  //   https://USERNAME.github.io/REPO-NAME/videos/video-01.mp4
+  //   https://USERNAME.github.io/REPO-NAME/videos/video-01.jpg
+  //
+  // ============================================================
 
-  // Video Content Data - 2 videos only
-  // Update videoUrl and posterUrl to your actual file paths for GitHub
   const VIDEOS = [
     {
-      // GitHub Pages paths (relative to index.html):
-      videoUrl: "./videos/video-01.mp4",
-      posterUrl: "./videos/video-01.jpg",
-      // Demo fallback URLs (used when USE_DEMO = true):
-      demoVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      demoPosterUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
-      duration: "0:00"
+      videoUrl:  "https://USERNAME.github.io/REPO-NAME/videos/video-01.mp4",
+      posterUrl: "https://USERNAME.github.io/REPO-NAME/videos/video-01.jpg",
+      duration:  "0:00"
     },
     {
-      videoUrl: "./videos/video-02.mp4",
-      posterUrl: "./videos/video-02.jpg",
-      demoVideoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      demoPosterUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
-      duration: "0:00"
+      videoUrl:  "https://USERNAME.github.io/REPO-NAME/videos/video-02.mp4",
+      posterUrl: "https://USERNAME.github.io/REPO-NAME/videos/video-02.jpg",
+      duration:  "0:00"
     }
   ];
 
-  // Instruction messages that change based on user state and element hovered
+  // ============================================================
+  // Instruction messages
+  // ============================================================
   const INSTRUCTIONS = {
     playBtn: {
-      start: "<strong>Click to play</strong> the video. Use <kbd>Space</kbd> to pause/resume.",
+      start:   "<strong>Click to play</strong> the video. Use <kbd>Space</kbd> to pause/resume.",
       playing: "<strong>Click to pause</strong> the video. Use <kbd>Space</kbd> to resume.",
       watched: "<strong>Rewatch</strong> this video anytime. Click to play again."
     },
     prevBtn: {
-      default: "<strong>Previous video</strong>. Click or press <kbd>←</kbd> to go back.",
+      default:  "<strong>Previous video</strong>. Click or press <kbd>←</kbd> to go back.",
       disabled: "This is the first video."
     },
     nextBtn: {
-      default: "<strong>Next video</strong>. Click or press <kbd>→</kbd> to continue.",
+      default:    "<strong>Next video</strong>. Click or press <kbd>→</kbd> to continue.",
       oneWatched: "<strong>Next video</strong> — one more to watch! Click or press <kbd>→</kbd>.",
       allWatched: "<strong>Rewatch</strong> the next video. You've seen them all!",
-      disabled: "This is the last video."
+      disabled:   "This is the last video."
     }
   };
 
+  // ============================================================
   // State
+  // ============================================================
   const watched = new Set();
   let currentIndex = 0;
   let isPlaying = false;
-  let watchThreshold = 0.7; // Mark as watched at 70% progress
+  const watchThreshold = 0.7;
 
+  // ============================================================
   // DOM Elements
-  const video = document.getElementById('mainVideo');
-  const videoOverlay = document.getElementById('videoOverlay');
-  const playBtn = document.getElementById('playBtn');
-  const videoDuration = document.getElementById('videoDuration');
-  const videoProgressFill = document.getElementById('videoProgressFill');
-  const videoCard = document.getElementById('videoCard');
-  const videoPlayer = document.getElementById('videoPlayer');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const thumbnailStrip = document.getElementById('thumbnailStrip');
-  const dotIndicators = document.getElementById('dotIndicators');
-  const progressBar = document.getElementById('progressBar');
-  const visitedCountEl = document.getElementById('visitedCount');
-  const totalCountEl = document.getElementById('totalCount');
-  const completionLabel = document.getElementById('completionLabel');
-  const tooltip = document.getElementById('tooltip');
+  // ============================================================
+  const video            = document.getElementById('mainVideo');
+  const videoOverlay     = document.getElementById('videoOverlay');
+  const videoErrorMsg    = document.getElementById('videoErrorMsg');
+  const playBtn          = document.getElementById('playBtn');
+  const videoDuration    = document.getElementById('videoDuration');
+  const videoProgressFill= document.getElementById('videoProgressFill');
+  const videoCard        = document.getElementById('videoCard');
+  const videoPlayer      = document.getElementById('videoPlayer');
+  const prevBtn          = document.getElementById('prevBtn');
+  const nextBtn          = document.getElementById('nextBtn');
+  const thumbnailStrip   = document.getElementById('thumbnailStrip');
+  const dotIndicators    = document.getElementById('dotIndicators');
+  const progressBar      = document.getElementById('progressBar');
+  const visitedCountEl   = document.getElementById('visitedCount');
+  const totalCountEl     = document.getElementById('totalCount');
+  const completionLabel  = document.getElementById('completionLabel');
+  const tooltip          = document.getElementById('tooltip');
   const instructionPopup = document.getElementById('instructionPopup');
 
-  // Initialize
   totalCountEl.textContent = VIDEOS.length;
 
-  // Helper: Get the correct URL based on USE_DEMO flag
-  function getVideoUrl(item) {
-    return USE_DEMO ? item.demoVideoUrl : item.videoUrl;
+  // ============================================================
+  // FIX 4: Video error handler — shows error state, hides overlay
+  // ============================================================
+  function showVideoError() {
+    videoErrorMsg.classList.add('visible');
+    videoOverlay.classList.add('hidden');
   }
 
-  function getPosterUrl(item) {
-    return USE_DEMO ? item.demoPosterUrl : item.posterUrl;
+  function clearVideoError() {
+    videoErrorMsg.classList.remove('visible');
   }
 
-  // ============================================================
-  // INSTRUCTION POPUP - TIGHT positioning, very close to button
-  // ============================================================
+  video.addEventListener('error', showVideoError);
 
+  // ============================================================
+  // Instruction Popup
+  // ============================================================
   function showInstructionPopup(element, htmlContent, position) {
     instructionPopup.innerHTML = htmlContent;
     instructionPopup.className = 'instruction-popup';
     instructionPopup.classList.add('visible');
 
-    // Get video player bounds (the container we position inside)
-    const playerRect = videoPlayer.getBoundingClientRect();
+    const playerRect  = videoPlayer.getBoundingClientRect();
     const elementRect = element.getBoundingClientRect();
-
-    // Calculate element position relative to the video player
-    const elLeft = elementRect.left - playerRect.left;
-    const elTop = elementRect.top - playerRect.top;
-    const elRight = elementRect.right - playerRect.left;
-    const elBottom = elementRect.bottom - playerRect.top;
-    const elCenterX = elLeft + elementRect.width / 2;
-    const elCenterY = elTop + elementRect.height / 2;
-
-    const popupWidth = 220;
-    const popupHeight = 50; // approximate
-    const gap = 4; // VERY small gap - just 4px between popup and button
-    const padding = 8;
-
+    const elLeft      = elementRect.left - playerRect.left;
+    const elTop       = elementRect.top  - playerRect.top;
+    const elRight     = elementRect.right - playerRect.left;
+    const elBottom    = elementRect.bottom - playerRect.top;
+    const elCenterX   = elLeft + elementRect.width  / 2;
+    const elCenterY   = elTop  + elementRect.height / 2;
+    const popupWidth  = 220;
+    const popupHeight = 50;
+    const gap         = 4;
+    const padding     = 8;
     let left, top, pointerClass;
 
     if (position === 'playBtn') {
-      // Play button: popup ABOVE the button, very close
       pointerClass = 'pointer-down';
       left = elCenterX - popupWidth / 2;
-      top = elTop - popupHeight - gap;
-
-      // If too close to top, put it BELOW the button
-      if (top < padding) {
-        top = elBottom + gap;
-        pointerClass = 'pointer-up';
-      }
-      // Clamp horizontal
+      top  = elTop - popupHeight - gap;
+      if (top < padding) { top = elBottom + gap; pointerClass = 'pointer-up'; }
       left = Math.max(padding, Math.min(left, playerRect.width - popupWidth - padding));
-    }
-    else if (position === 'prevBtn') {
-      // Previous button (left edge): popup to the RIGHT of the arrow, very close
+    } else if (position === 'prevBtn') {
       pointerClass = 'pointer-left';
       left = elRight + gap;
-      top = elCenterY - popupHeight / 2;
-
-      // If too far right, put it ABOVE the button
+      top  = elCenterY - popupHeight / 2;
       if (left + popupWidth > playerRect.width - padding) {
         left = elCenterX - popupWidth / 2;
-        top = elTop - popupHeight - gap;
+        top  = elTop - popupHeight - gap;
         pointerClass = 'pointer-down';
       }
-      // Clamp vertical
-      top = Math.max(padding, Math.min(top, playerRect.height - popupHeight - padding));
-      // Clamp horizontal
-      left = Math.max(padding, Math.min(left, playerRect.width - popupWidth - padding));
-    }
-    else if (position === 'nextBtn') {
-      // Next button (right edge): popup to the LEFT of the arrow, very close
+      top  = Math.max(padding, Math.min(top,  playerRect.height - popupHeight - padding));
+      left = Math.max(padding, Math.min(left, playerRect.width  - popupWidth  - padding));
+    } else if (position === 'nextBtn') {
       pointerClass = 'pointer-right';
       left = elLeft - popupWidth - gap;
-      top = elCenterY - popupHeight / 2;
-
-      // If too far left, put it ABOVE the button
+      top  = elCenterY - popupHeight / 2;
       if (left < padding) {
         left = elCenterX - popupWidth / 2;
-        top = elTop - popupHeight - gap;
+        top  = elTop - popupHeight - gap;
         pointerClass = 'pointer-down';
       }
-      // Clamp vertical
-      top = Math.max(padding, Math.min(top, playerRect.height - popupHeight - padding));
-      // Clamp horizontal
-      left = Math.max(padding, Math.min(left, playerRect.width - popupWidth - padding));
+      top  = Math.max(padding, Math.min(top,  playerRect.height - popupHeight - padding));
+      left = Math.max(padding, Math.min(left, playerRect.width  - popupWidth  - padding));
     }
 
-    // Apply position relative to video player
     instructionPopup.style.left = left + 'px';
-    instructionPopup.style.top = top + 'px';
+    instructionPopup.style.top  = top  + 'px';
     instructionPopup.classList.add(pointerClass);
   }
 
@@ -796,78 +761,67 @@
     instructionPopup.classList.remove('visible');
   }
 
-  // Get appropriate instruction message for play button
   function getPlayBtnInstruction() {
-    if (watched.has(currentIndex)) {
-      return INSTRUCTIONS.playBtn.watched;
-    } else if (isPlaying) {
-      return INSTRUCTIONS.playBtn.playing;
-    } else {
-      return INSTRUCTIONS.playBtn.start;
-    }
+    if (watched.has(currentIndex)) return INSTRUCTIONS.playBtn.watched;
+    if (isPlaying)                 return INSTRUCTIONS.playBtn.playing;
+    return INSTRUCTIONS.playBtn.start;
   }
 
-  // Get appropriate instruction message for next button
   function getNextBtnInstruction() {
-    if (nextBtn.disabled) {
-      return INSTRUCTIONS.nextBtn.disabled;
-    }
+    if (nextBtn.disabled) return INSTRUCTIONS.nextBtn.disabled;
     const count = watched.size;
     const total = VIDEOS.length;
-    if (count === total) {
-      return INSTRUCTIONS.nextBtn.allWatched;
-    } else if (count === 1 && currentIndex === 0) {
-      return INSTRUCTIONS.nextBtn.oneWatched;
-    } else {
-      return INSTRUCTIONS.nextBtn.default;
-    }
+    if (count === total)               return INSTRUCTIONS.nextBtn.allWatched;
+    if (count === 1 && currentIndex === 0) return INSTRUCTIONS.nextBtn.oneWatched;
+    return INSTRUCTIONS.nextBtn.default;
   }
 
-  // Get appropriate instruction message for prev button
   function getPrevBtnInstruction() {
-    if (prevBtn.disabled) {
-      return INSTRUCTIONS.prevBtn.disabled;
-    }
-    return INSTRUCTIONS.prevBtn.default;
+    return prevBtn.disabled ? INSTRUCTIONS.prevBtn.disabled : INSTRUCTIONS.prevBtn.default;
   }
 
-  // Attach instruction popups to interactive elements
   function attachInstructionPopups() {
-    // Play Button - popup very close to button
-    playBtn.addEventListener('mouseenter', () => {
-      showInstructionPopup(playBtn, getPlayBtnInstruction(), 'playBtn');
-    });
+    playBtn.addEventListener('mouseenter', () => showInstructionPopup(playBtn, getPlayBtnInstruction(), 'playBtn'));
     playBtn.addEventListener('mouseleave', hideInstructionPopup);
-
-    // Previous Button (overlay arrow) - popup very close
-    prevBtn.addEventListener('mouseenter', () => {
-      showInstructionPopup(prevBtn, getPrevBtnInstruction(), 'prevBtn');
-    });
+    prevBtn.addEventListener('mouseenter', () => showInstructionPopup(prevBtn, getPrevBtnInstruction(), 'prevBtn'));
     prevBtn.addEventListener('mouseleave', hideInstructionPopup);
-
-    // Next Button (overlay arrow) - popup very close
-    nextBtn.addEventListener('mouseenter', () => {
-      showInstructionPopup(nextBtn, getNextBtnInstruction(), 'nextBtn');
-    });
+    nextBtn.addEventListener('mouseenter', () => showInstructionPopup(nextBtn, getNextBtnInstruction(), 'nextBtn'));
     nextBtn.addEventListener('mouseleave', hideInstructionPopup);
   }
 
-  // Generate Thumbnails & Dots
+  // ============================================================
+  // Build Thumbnails & Dots
+  // ============================================================
   VIDEOS.forEach((item, index) => {
-    const poster = getPosterUrl(item);
-
     // Thumbnail
     const thumb = document.createElement('div');
     thumb.className = 'thumbnail';
     thumb.dataset.index = index;
-    thumb.innerHTML = `
-      <img src="${poster}" alt="Video ${index + 1}" loading="lazy">
-      <span class="thumbnail-number">${String(index + 1).padStart(2, '0')}</span>
-    `;
+
+    // FIX 4: onerror fallback on thumbnail image
+    const img = document.createElement('img');
+    img.src = item.posterUrl;
+    img.alt = 'Video ' + (index + 1);
+    img.loading = 'lazy';
+    img.onerror = function() {
+      this.style.display = 'none';
+      const fb = document.createElement('div');
+      fb.className = 'thumbnail-fallback';
+      fb.textContent = String(index + 1).padStart(2, '0');
+      thumb.insertBefore(fb, thumb.firstChild);
+    };
+
+    const numSpan = document.createElement('span');
+    numSpan.className = 'thumbnail-number';
+    numSpan.textContent = String(index + 1).padStart(2, '0');
+
+    thumb.appendChild(img);
+    thumb.appendChild(numSpan);
+
     thumb.addEventListener('click', () => goToSlide(index));
     thumb.addEventListener('mouseenter', (e) => {
       const status = watched.has(index) ? ' (watched)' : ' (unwatched)';
-      showTooltip(e, `Video ${index + 1}${status}`);
+      showTooltip(e, 'Video ' + (index + 1) + status);
     });
     thumb.addEventListener('mouseleave', hideTooltip);
     thumbnailStrip.appendChild(thumb);
@@ -880,86 +834,71 @@
     dotIndicators.appendChild(dot);
   });
 
+  // ============================================================
   // Load Video
+  // ============================================================
   function loadVideo(index) {
     const item = VIDEOS[index];
-
-    // Pause current
     video.pause();
     isPlaying = false;
     videoOverlay.classList.remove('hidden');
+    clearVideoError();
 
-    // Set new source
-    video.src = getVideoUrl(item);
-    video.poster = getPosterUrl(item);
+    video.src = item.videoUrl;
+    if (item.posterUrl) video.poster = item.posterUrl;
     video.load();
 
-    // Update duration display
     videoDuration.textContent = item.duration;
+    videoProgressFill.style.width = '0%';
 
-    // Update states
     updateCardState(index);
     updateThumbnails();
     updateDots();
     updateNavButtons();
-
-    // Reset progress
-    videoProgressFill.style.width = '0%';
   }
 
-  // Update Card Visual State
   function updateCardState(index) {
     videoCard.classList.remove('active', 'visited');
-
-    if (watched.has(index)) {
-      videoCard.classList.add('visited');
-    }
-
+    if (watched.has(index)) videoCard.classList.add('visited');
     videoCard.classList.add('active');
   }
 
-  // Update Thumbnails
   function updateThumbnails() {
-    const thumbs = thumbnailStrip.querySelectorAll('.thumbnail');
-    thumbs.forEach((thumb, i) => {
+    thumbnailStrip.querySelectorAll('.thumbnail').forEach((thumb, i) => {
       thumb.classList.remove('active', 'visited');
       if (i === currentIndex) thumb.classList.add('active');
-      if (watched.has(i)) thumb.classList.add('visited');
+      if (watched.has(i))     thumb.classList.add('visited');
     });
   }
 
-  // Update Dots
   function updateDots() {
-    const dots = dotIndicators.querySelectorAll('.dot');
-    dots.forEach((dot, i) => {
+    dotIndicators.querySelectorAll('.dot').forEach((dot, i) => {
       dot.classList.remove('active', 'watched');
       if (i === currentIndex) dot.classList.add('active');
-      if (watched.has(i)) dot.classList.add('watched');
+      if (watched.has(i))     dot.classList.add('watched');
     });
   }
 
-  // Update Nav Buttons
   function updateNavButtons() {
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex === VIDEOS.length - 1;
   }
 
+  // ============================================================
   // Navigation
+  // ============================================================
   function goToSlide(index) {
     if (index < 0 || index >= VIDEOS.length) return;
     currentIndex = index;
     loadVideo(currentIndex);
   }
 
-  function nextSlide() {
-    goToSlide(currentIndex + 1);
-  }
+  function nextSlide() { goToSlide(currentIndex + 1); }
+  function prevSlide() { goToSlide(currentIndex - 1); }
 
-  function prevSlide() {
-    goToSlide(currentIndex - 1);
-  }
-
-  // Play/Pause
+  // ============================================================
+  // Playback
+  // ============================================================
   function togglePlay() {
     if (video.paused) {
       video.play();
@@ -972,7 +911,6 @@
     }
   }
 
-  // Mark as Watched
   function markWatched() {
     if (!watched.has(currentIndex)) {
       watched.add(currentIndex);
@@ -984,43 +922,39 @@
     }
   }
 
-  // Update Progress
   function updateProgress() {
-    const percentage = (watched.size / VIDEOS.length) * 100;
-    progressBar.style.width = percentage + '%';
+    const pct = (watched.size / VIDEOS.length) * 100;
+    progressBar.style.width = pct + '%';
     visitedCountEl.textContent = watched.size;
   }
 
-  // Update Completion Label
   function updateCompletionLabel() {
     const count = watched.size;
     const total = VIDEOS.length;
-
     if (count === 0) {
       completionLabel.textContent = 'Begin watching';
+      completionLabel.style.color = '';
     } else if (count === total) {
       completionLabel.textContent = 'All videos watched!';
       completionLabel.style.color = 'var(--accent)';
     } else {
-      completionLabel.textContent = `${total - count} video${total - count !== 1 ? 's' : ''} remaining`;
+      const rem = total - count;
+      completionLabel.textContent = rem + ' video' + (rem !== 1 ? 's' : '') + ' remaining';
+      completionLabel.style.color = '';
     }
   }
 
-  // Video Event Listeners
+  // ============================================================
+  // Video Events
+  // ============================================================
   video.addEventListener('timeupdate', () => {
     if (video.duration) {
       const progress = (video.currentTime / video.duration) * 100;
       videoProgressFill.style.width = progress + '%';
-
-      // Update duration display from actual video metadata
       const mins = Math.floor(video.duration / 60);
       const secs = Math.floor(video.duration % 60);
-      videoDuration.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
-
-      // Mark as watched at threshold
-      if (video.currentTime / video.duration >= watchThreshold) {
-        markWatched();
-      }
+      videoDuration.textContent = mins + ':' + String(secs).padStart(2, '0');
+      if (video.currentTime / video.duration >= watchThreshold) markWatched();
     }
   });
 
@@ -1031,28 +965,25 @@
   });
 
   video.addEventListener('click', togglePlay);
-  playBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    togglePlay();
-  });
+  playBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
 
-  // Navigation Events
   prevBtn.addEventListener('click', prevSlide);
   nextBtn.addEventListener('click', nextSlide);
 
-  // Keyboard Navigation
+  // ============================================================
+  // Keyboard
+  // ============================================================
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-    if (e.key === ' ' || e.key === 'k') {
-      e.preventDefault();
-      togglePlay();
-    }
+    if (e.key === 'ArrowLeft')           prevSlide();
+    if (e.key === 'ArrowRight')          nextSlide();
+    if (e.key === ' ' || e.key === 'k') { e.preventDefault(); togglePlay(); }
   });
 
-  // Touch/Swipe Support
+  // ============================================================
+  // Touch / Swipe
+  // ============================================================
   let touchStartX = 0;
-  let touchEndX = 0;
+  let touchEndX   = 0;
 
   videoCard.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
@@ -1060,30 +991,30 @@
 
   videoCard.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
-
-  function handleSwipe() {
     const diff = touchStartX - touchEndX;
     if (Math.abs(diff) > 50) {
       if (diff > 0) nextSlide();
-      else prevSlide();
+      else          prevSlide();
     }
-  }
+  }, { passive: true });
 
-  // Tooltip Functions
+  // ============================================================
+  // Tooltip
+  // ============================================================
   function showTooltip(e, text) {
     tooltip.textContent = text;
     tooltip.classList.add('visible');
     tooltip.style.left = (e.clientX + 12) + 'px';
-    tooltip.style.top = (e.clientY + 12) + 'px';
+    tooltip.style.top  = (e.clientY + 12) + 'px';
   }
 
   function hideTooltip() {
     tooltip.classList.remove('visible');
   }
 
-  // Initialize first slide and attach popups
+  // ============================================================
+  // Init
+  // ============================================================
   loadVideo(0);
   attachInstructionPopups();
 </script>
